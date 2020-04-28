@@ -23,13 +23,24 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.info-linea{
+  font-size: 120%;
+  font-weight: bold;
+}
+.info-linea-soft{
+  font-size: 90%;
+  font-weight: 300;
+}
 .App-link {
   color: #61dafb;
 }
 .list-linea{
   font-size: 120%;
   font-weight: bold;
+}
+.box-lineas{padding: 20px;
+  border: solid rgba(181, 181, 181, 0.32) .5px;
+  margin: 10px;
 }
 @keyframes App-logo-spin {
   from {

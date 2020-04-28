@@ -10,12 +10,13 @@ import {
 import Paradas from "./components/Paradas";
 import ParadaData from "./components/ParadaData";
 import Lineas from './components/Lineas'
+import ParadasID from './components/ParadasID'
 import LineaData from './components/LineaData'
 class App extends Component {
   render() {
     return (
       <div id="root">
-    
+
         <div>
           <nav className="navbar navbar-dark bg-primary mb-3">
             <div className="container">
@@ -31,10 +32,12 @@ class App extends Component {
                   <Lineas />
                 </div>
               </div>
-                 <Router>
-          <Route path="/:parada" exact component={ParadaData} />
-             <Route path="/lin/:lin" exact component={LineaData} />
-        </Router>
+              <Router>
+
+                <Route path="/paradas/linia/:idlin" exact component={ParadasID} />
+                <Route path="/:parada" exact component={ParadaData} />
+                <Route path="/linea/:lin" exact component={LineaData} />
+              </Router>
             </div>
           </div>
         </div>

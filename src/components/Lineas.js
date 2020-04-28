@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import Linias from "../linies_bus.json";
 import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 class Lineas extends Component {
   state = {
     tmb: [],
@@ -20,9 +27,9 @@ class Lineas extends Component {
       value: e.target.value,
     });
 
- 
-    
- 
+
+
+
   };
   render() {
     const { tmb, value } = this.state;
@@ -36,21 +43,25 @@ class Lineas extends Component {
         ></input>
 
         {tmb.filter(
-      (dat) => dat.properties.NOM_LINIA.indexOf(this.state.value)   >-1
-    ).map((paradeslist) => {
+          (dat) => dat.properties.NOM_LINIA.toLowerCase().indexOf(this.state.value.toLowerCase()) > -1
+        ).map((paradeslist, index) => {
           return (
-            <a
-              key={paradeslist.properties.ID_LINIA}
-              className="list-group-item list-group-item-action"
-              href={`/lin/` + paradeslist.properties.NOM_LINIA }
-            >
-              {" "}
-              <span className="list-linea">Linea </span>
-              {paradeslist.properties.NOM_LINIA}{" "}
-            </a>
+            <div key={index}>
+
+              <a
+                className="list-group-item list-group-item-action"
+                href={`/linea/` + paradeslist.properties.NOM_LINIA} >
+                {paradeslist.properties.NOM_LINIA}
+              </a>
+
+
+
+            </div>
+
           );
-        })}
-      </div>
+        })
+        }
+      </div >
     );
   }
 }
