@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "install-peers": "^1.0.3",
-    "fsevents": "*"
+    "install-peers": "^1.0.3"
+ 
   }
 }
