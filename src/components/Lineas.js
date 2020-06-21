@@ -38,8 +38,28 @@ class Lineas extends Component {
     return (
 
 
+      <div>
 
-      <div className="mitad" >
+
+        <div className=" list-group-item mitad box-lineas" >
+          <Link to="/linea/110">
+            <button className=" btn margin btn-primary ">110</button>
+          </Link>
+          <Link to="/linea/109">
+            <button className=" btn  margin btn-primary ">109</button>
+          </Link>
+          <Link to="/linea/21">
+            <button className=" btn margin  btn-primary ">21</button>
+          </Link>
+
+        </div>
+        <div className=" list-group-item mitad box-lineas" >
+          <Link to="/1980/110">
+            <button className=" btn margin btn-primary ">Av. Carr - 110</button>
+          </Link>
+
+
+        </div>
         <div className="box-lineas">
           <input
             onChange={this.handleChange}
@@ -66,8 +86,9 @@ class Lineas extends Component {
             );
           })
           }
-        </div>
-      </div >
+
+        </div >
+      </div>
     );
   }
 }

@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import TienpoParada from './TiempoParada'
 import TiempoParada from './TiempoParada'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+} from "react-router-dom";
 class ParadasId extends Component {
 
     state = {
@@ -33,7 +40,7 @@ class ParadasId extends Component {
                                 {paradeslist.properties.DESC_SENTIT}
 
                                 <div className="info-linea-soft">  {paradeslist.properties.DESC_LINIA}  {paradeslist.properties.CODI_PARADA} </div>
-
+                                <Link to={"/" + paradeslist.properties.CODI_PARADA + "/" + paradeslist.properties.NOM_LINIA}><button className="btn btn-success">Ver Parada</button> </Link>
                             </div>
 
 

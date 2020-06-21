@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import ParadesJson from "../parades.json";
+import TiempoParada from './TiempoParada'
+
 class ParadaData extends Component {
   state = {
     parades: ParadesJson,
     error: null,
+    parada: this.props.match.params.parada,
+    lin: this.props.match.params.idlin
   };
 
   render() {
-    const { parades } = this.state;
+    const { parades, parada, lin } = this.state;
     return (
       <div className="col-7">
 
@@ -16,7 +20,8 @@ class ParadaData extends Component {
         ).map(function (item, i) {
           return (
 
-            <h1 key={i}>  {item.properties.CODI_PARADA}</h1>
+
+            <h4 key={i}> {/* ID:   {item.properties.CODI_PARADA} */}  <TiempoParada linia={lin} parada={parada} />  </h4>
 
 
           );
@@ -25,6 +30,7 @@ class ParadaData extends Component {
           <thead></thead>
           <tbody>
             <tr>
+
               <td>Ubicacion</td>
               {parades.features.filter(
                 (dat) => dat.properties.CODI_PARADA == this.props.match.params.parada

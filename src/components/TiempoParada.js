@@ -28,7 +28,7 @@ class TiempoParada extends Component {
             <div>
 
 
-                {tiempo ? <div> {tiempo['t-in-min']} </div> : <div> No hay datos de este autobus </div>}
+                {tiempo ? <div className="btn btn-dark"> {tiempo['t-in-min']} <span> Minutos </span> </div> : <div> No hay datos de este autobus </div>}
 
 
 
