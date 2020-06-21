@@ -5,7 +5,8 @@ import TiempoParada from './TiempoParada'
 class ParadasId extends Component {
 
     state = {
-        paradas: []
+        paradas: [],
+        sentido: this.props.match.params.s
     }
 
     componentDidMount() {
@@ -16,31 +17,28 @@ class ParadasId extends Component {
             })
     }
     render() {
-        const { paradas } = this.state
-        console.log("paradas", paradas)
+        const { paradas, sentido } = this.state
         return (
             <div>
 
-                .   {paradas.filter(
-                    (dat) => dat.properties.DESC_SENTIT === "Anada"
+                {paradas.filter(
+                    (dat) => dat.properties.DESC_SENTIT === sentido).sort((a, b) => a.properties.ORDRE - b.properties.ORDRE).map((paradeslist, index) => {
 
-                ).map((paradeslist, index) => {
+                        return (
 
-                    return (
+                            <div key={index} className="box-lineas" >
+                                <TiempoParada linia={paradeslist.properties.NOM_LINIA} parada={paradeslist.properties.CODI_PARADA} />
 
-                        <div className="box-lineas" >
-                            <TiempoParada linia={paradeslist.properties.NOM_LINIA} parada={paradeslist.properties.CODI_PARADA} />
+                                <div className="info-linea" key={index}>  {paradeslist.properties.NOM_LINIA} {paradeslist.properties.NOM_PARADA} </div>
+                                {paradeslist.properties.DESC_SENTIT}
 
-                            <div className="info-linea" key={index}>  {paradeslist.properties.NOM_LINIA} {paradeslist.properties.NOM_PARADA} </div>
-                            {paradeslist.properties.DESC_SENTIT}
+                                <div className="info-linea-soft">  {paradeslist.properties.DESC_LINIA}  {paradeslist.properties.CODI_PARADA} </div>
 
-                            <div className="info-linea-soft">  {paradeslist.properties.DESC_LINIA}  {paradeslist.properties.CODI_PARADA} </div>
-
-                        </div>
+                            </div>
 
 
-                    );
-                })
+                        );
+                    })
                 }
             </div >
 

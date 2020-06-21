@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Linias from "../linies_bus.json";
 import axios from "axios";
+import "../App.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -35,32 +36,37 @@ class Lineas extends Component {
     const { tmb, value } = this.state;
 
     return (
-      <div>
-        <input
-          onChange={this.handleChange}
-          placeholder="Busca Linea de Autobus"
-          className="list-group-item list-group-item-action"
-        ></input>
-
-        {tmb.filter(
-          (dat) => dat.properties.NOM_LINIA.toLowerCase().indexOf(this.state.value.toLowerCase()) > -1
-        ).map((paradeslist, index) => {
-          return (
-            <div key={index}>
-
-              <a
-                className="list-group-item list-group-item-action"
-                href={`/linea/` + paradeslist.properties.NOM_LINIA} >
-                {paradeslist.properties.NOM_LINIA}
-              </a>
 
 
 
-            </div>
+      <div className="mitad" >
+        <div className="box-lineas">
+          <input
+            onChange={this.handleChange}
+            placeholder="Busca Linea de Autobus"
+            className="list-group-item list-group-item-action"
+          ></input>
 
-          );
-        })
-        }
+          {tmb.filter(
+            (dat) => dat.properties.NOM_LINIA.toLowerCase().indexOf(this.state.value.toLowerCase()) > -1
+          ).map((paradeslist, index) => {
+            return (
+              <div key={index}>
+
+                <a
+                  className="list-group-item list-group-item-action"
+                  href={`/linea/` + paradeslist.properties.NOM_LINIA} >
+                  {paradeslist.properties.NOM_LINIA}
+                </a>
+
+
+
+              </div>
+
+            );
+          })
+          }
+        </div>
       </div >
     );
   }

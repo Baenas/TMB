@@ -26,7 +26,12 @@ class TiempoParada extends Component {
 
         return (
             <div>
-                {tiempo['text-ca']}
+
+
+                {tiempo ? <div> {tiempo['t-in-min']} </div> : <div> No hay datos de este autobus </div>}
+
+
+
             </div>
         )
 

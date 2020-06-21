@@ -26,20 +26,20 @@ class ParadaData extends Component {
   render() {
     const { tmb } = this.state;
     return (
-      <div className="col-7">
+      <div className="col-12">
 
 
         {tmb.filter(
           (dat) => dat.properties.NOM_LINIA === this.props.match.params.lin && dat.properties.DESC_SENTIT === "Anada"
 
         ).map((paradeslist, index) => {
-          console.log(paradeslist)
+
           return (<div key={index} >
-            <Link to={"/paradas/linia/" + paradeslist.properties.CODI_LINIA}>
+            <Link to={{ pathname: "/paradas/linia/" + paradeslist.properties.CODI_LINIA + "/Anada" }}>
               <div className="box-lineas" >
 
                 <div className="info-linea" >  {paradeslist.properties.NOM_LINIA}  </div>
-                {paradeslist.properties.DESC_SENTIT}
+                {paradeslist.properties.DESC_SENTIT} | Direcció  {paradeslist.properties.DESTI_TRAJECTE}
 
                 <div className="info-linea-soft">  {paradeslist.properties.DESC_LINIA}  </div>
 
@@ -50,6 +50,33 @@ class ParadaData extends Component {
           </div>
           );
         })
+        }
+
+        {
+          tmb.filter(
+            (dat) => dat.properties.NOM_LINIA === this.props.match.params.lin && dat.properties.DESC_SENTIT === "Tornada"
+
+          ).map((paradeslist, index) => {
+
+            return (<div key={index} >
+              <Link to={{ pathname: "/paradas/linia/" + paradeslist.properties.CODI_LINIA + "/Tornada" }}>
+
+
+                <div className="box-lineas" >
+
+                  <div className="info-linea" >  {paradeslist.properties.NOM_LINIA}  </div>
+                  {paradeslist.properties.DESC_SENTIT}| Direcció  {paradeslist.properties.DESTI_TRAJECTE}
+
+
+                  <div className="info-linea-soft">  {paradeslist.properties.DESC_LINIA}  </div>
+
+                </div>
+
+
+              </Link>
+            </div>
+            );
+          })
         }
 
       </div >
