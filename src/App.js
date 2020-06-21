@@ -15,9 +15,8 @@ import LineaData from './components/LineaData'
 class App extends Component {
   render() {
     return (
-      <div id="root">
-
-        <div>
+      <Router>
+        <div id="root">
           <nav className="navbar navbar-dark bg-primary mb-3">
             <div className="container">
               <a className="navbar-brand" href="/">
@@ -25,23 +24,18 @@ class App extends Component {
               </a>
             </div>
           </nav>
-          <div className="container">
-            <div className="row">
-              <div className="col-5">
-                <div className="list-group">
-                  <Lineas />
-                </div>
-              </div>
-              <Router>
 
-                <Route path="/paradas/linia/:idlin" exact component={ParadasID} />
-                <Route path="/:parada" exact component={ParadaData} />
-                <Route path="/linea/:lin" exact component={LineaData} />
-              </Router>
-            </div>
-          </div>
+
+          <Route path="/" exact component={Lineas} />
+
+          <Route path="/paradas/linia/:idlin/:s" exact component={ParadasID} />
+          <Route path="/:parada/:idlin" exact component={ParadaData} />
+          <Route path="/linea/:lin" exact component={LineaData} />
+
+
         </div>
-      </div>
+      </Router>
+
     );
   }
 }

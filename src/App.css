@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.margin{
+  margin:10px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -34,11 +36,15 @@
 .App-link {
   color: #61dafb;
 }
+.mitad{
+  max-height: 50%;
+}
 .list-linea{
   font-size: 120%;
   font-weight: bold;
 }
-.box-lineas{padding: 20px;
+.box-lineas{
+  padding: 20px;
   border: solid rgba(181, 181, 181, 0.32) .5px;
   margin: 10px;
 }
